@@ -1,3 +1,19 @@
+/*
+APIFY CRAWLER SETUP:
+
+START URLs:
+https://www.restu.cz/[.+]/
+
+PRESUDO-URLs:
+https://www.restu.cz/[.+]/
+https://www.restu.cz/[.+]/hodnoceni/#tabs
+https://www.restu.cz/[.+]/hodnoceni/?page=[\d+]#restaurant-review-list-anchor
+https://www.restu.cz/praha/?page=[\d+]
+
+CLICKABLE ELEMENTS:
+a.card-item-link, li#review a, p.restaurant-review-item__summary, ul.pagination li a
+*/
+
 function pageFunction(context) {
 
 	var $ = context.jQuery;
