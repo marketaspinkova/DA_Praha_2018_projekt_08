@@ -14,7 +14,8 @@ add column web varchar(10);
 update restu_apify_all
 set web = 'Restu';
 
--- removing diacritcs for further work with features - regex function "separate_camel" does not work with czech diacritics
+-- removing diacritcs for further work with features - regex function "separate_camel", which we would be using in the next step, 
+-- does not work with czech diacritics
 update restu_apify_all
 set features = translate(features,'áéěíýóúůžščřďťňÁÉÍÝÓÚŮŽŠČŘĎŤŇ','aeeiyouuzscrdtnAEIYOUUZSCRDTN');
 
