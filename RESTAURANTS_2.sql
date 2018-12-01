@@ -67,13 +67,17 @@ set address = 'Praha, Ujezd 421/16'
 where address = 'Praha, Ujezd 421/16 Close To The Bridge To The National Tneatre'
 ;
 
--- With addresses corrected we sent th list of the four corrected addresses to Geocoding Augmentation in Keboola and then added the data to the resulting table. It would be more convenient to just correct the table RESTAURANTS and send it to Geocoding Augmentation again, however, Google geocoding is a paid service and the limit for free queries is quite low. Therefore we try to limit the amount of queries we send there.
+/* With addresses corrected we sent th list of the four corrected addresses to Geocoding Augmentation in Keboola 
+and then added the data to the resulting table. It would be more convenient to just correct the table RESTAURANTS 
+and send it to Geocoding Augmentation again, however, Google geocoding is a paid service and the limit 
+for free queries is quite low. Therefore we try to limit the amount of queries we send there. */
 
 -- a new table with geodata from google maps
 -- to have the scores comprehensively distributed, we rounded them
 
 create table restaurants_2 as
-select distinct r.rest_id, r.name, r.address, r.features, try_to_number(r.score_restaurant) score_restaurant, r.web, g."latitude" latitude, g."longitude" longitude
+select distinct r.rest_id, r.name, r.address, r.features, try_to_number(r.score_restaurant) score_restaurant, 
+  r.web, g."latitude" latitude, g."longitude" longitude
 from restaurants r
 left join restaurants_geodone g
 on r.address = g."query"
