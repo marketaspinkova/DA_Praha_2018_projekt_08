@@ -87,8 +87,8 @@ group by rest_id
 
 -- review table
 create table ta_all_praha_reviews as  --156324
-select d.rest_id, r."name", s.score_restaurant, r."street", r."postal", r."features", r."subtype", r."type", r."longitude", r."latitude",
-    r."rev_url", r."title", r."text", r."date", r."response", r."rev_atmosphere", r."rev_food", 
+select d.rest_id, r."name", s.score_restaurant, r."street", r."postal", r."features", r."subtype", r."type", 
+    r."longitude", r."latitude", r."rev_url", r."title", r."text", r."date", r."response", r."rev_atmosphere", r."rev_food", 
     r."rev_service", r."rev_value", r."score" score_review,  r."language", r."author"
 from ta_all_praha_rec r
 left join duplicity d
